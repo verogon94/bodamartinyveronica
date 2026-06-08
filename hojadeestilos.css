@@ -1,0 +1,36 @@
+html
+header
+body { 
+    background-color: #F0FBFF; 
+    font-family: alegreya; 
+}
+p /* Afecta a todos los párrafos */
+li
+h1
+h2
+h3
+h4  {
+      color: #364043;
+}
+
+a:link { 
+    color: #759CB3; 
+}
+
+a:hover {
+    color: #1C4B59;
+}
+
+nav ul {
+    list-style: none; /* Quitamos las viñetas de la lista */
+}
+
+nav li {
+    display: inline; /*Elementos del menú en una línea horizontal */
+}
+
+.contenedor-widget-spofity { /* Solo afecta a los que tienen la clase 'contenedor-widget-spotify' */
+    max-width: 500px; /* Ajusta el ancho a tu gusto */
+    margin: 0 auto;   /* Centra el widget en la página */
+}
+
