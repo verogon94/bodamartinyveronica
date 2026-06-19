@@ -3,29 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="hojadeestilos.css">
-    <title> Boda Martín & Verónica</title>
+    <title>Boda Martín & Verónica</title>
     <link rel="icon" href="faviconanillos.png" type="image/x-icon">
 </head>
+<body class="pagina-portada">
 
-<body>
-    <header>
-        <!-- Este es el menú con sus elementos -->
-        <nav class="menu">
+    <!-- <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1920" id="foto-portada" alt="Portada de boda"> -->
+
+    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" id="foto-portada" alt="Portada de boda">
+
+   <!-- <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" id="foto-portada"> -->
+        <header>
+        <!-- El menú se define como menú portada para diferenciar de los otros menús y está dentro de la cabecera -->
+        <nav class="menu-portada">
             <ul>
-                <li><a href="hoteles.html">Hoteles</a></li>
-                <li><a href="ellugar.html">El lugar</a></li>
-                <li><a href="republicadominicana.html">República Dominicana</a></li>
-                <li><a href="elviaje.html">El viaje</a></li>
+                <!-- COLUMNA IZQUIERDA: MADRID -->
+                <li>
+                        <h1>
+                        <a href="bodamadrid.html" class="enlace-boda-portada">Ceremonia Madrid</a>
+                        </h1>
+                        
+                    
+                    <div class="cuenta-atras-contenedor">
+                        <div id="contador-madrid" class="contador-reloj">
+                            Cargando...
+                        </div>
+                    </div>
+                </li>
+
+        
+                <!-- COLUMNA DERECHA: BODA EN... -->
+                <li>
+                    <h1>
+                    <a href="bodaviaje.html" class="enlace-boda-portada">Ceremonia en...</a></h1>
+                    
+                    <div class="cuenta-atras-contenedor">
+                        <div id="contador-destino" class="contador-reloj">
+                            Cargando...
+                        </div>
+                    </div>
+                </li>
             </ul>
         </nav>
-    </header>
-
-    <!-- Este es el widget de Spotify -->
-     <div class="contenedor-widget-spotify"> 
-        <iframe src="https://enlace-del-widget.com" width="100%" height="400" frameborder="0"></iframe>
-     </div>
-    
+        <script>
+            // 📅 CONFIGURA AQUÍ LAS DOS FECHAS (Año, Mes [0-11], Día, Hora, Minutos)
+            // Recuerda: Enero=0, Febrero=1... Septiembre=8, Octubre=9, Noviembre=10, Diciembre=11.
+            const fechaMadrid = new Date(2026, 11, 20, 11, 15, 0).getTime();   /* Ejemplo: 12 Sept 2026 */
+            const fechaDestino = new Date(2026, 11, 28, 17, 0, 0).getTime();  /* Ejemplo: 24 Oct 2026 */
+            
+            // Función genérica que calcula y dibuja el tiempo en un contenedor específico
+            function actualizarReloj(fechaObjetivo, idContenedor) {
+                const ahora = new Date().getTime();
+                const distancia = fechaObjetivo - ahora;
+                const elemento = document.getElementById(idContenedor);
+            
+                if (!elemento) return;
+            
+                if (distancia < 0) {
+                    elemento.innerHTML = "<span class='tiempo-terminado'>¡Ya ha comenzado!</span>";
+                    return;
+                }
+            
+                const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+            
+                elemento.innerHTML = `
+                    <div class="tiempo-bloque"><strong>${dias}</strong><span>días</span></div>
+                    <div class="tiempo-bloque"><strong>${horas}</strong><span>horas</span></div>
+                    <div class="tiempo-bloque"><strong>${minutos}</strong><span>min</span></div>
+                    <div class="tiempo-bloque"><strong>${segundos}</strong><span>seg</span></div>
+                `;
+            }
+            
+            // Actualiza ambos contadores cada 1 segundo
+            setInterval(function() {
+                actualizarReloj(fechaMadrid, "contador-madrid");
+                actualizarReloj(fechaDestino, "contador-destino");
+            }, 1000);
+            </script>
+    </header>    
 </body>
 </html>
-
-
