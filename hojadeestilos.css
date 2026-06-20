@@ -272,3 +272,17 @@ nav.menu-boda-madrid ul {
 .contenido-el-lugar li {
     margin-bottom: 25px;
 }
+
+#proximamente {
+    text-align: center;
+    font-size: 330%;
+    padding-top: 15%;
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centro vertical */
+    align-items: center;     /* centro horizontal */
+    min-height: 100vh;
+}
+
+
