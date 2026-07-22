@@ -1,499 +1,662 @@
 :root {
-      --bg-main: #ffffff;
-      --text-main: #000000;
-      --text-muted: #666666;
-      --font-serif: 'Cormorant Garamond', Georgia, serif;
-      --font-sans: 'Montserrat', sans-serif;
-      --font-cursive: 'Great Vibes', cursive;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-sans);
-      line-height: 1.7;
-      text-align: center;
-      margin: 0;
-      background-color: var(--bg-main);
-      color: var(--text-main);
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3 {
-      font-family: var(--font-serif);
-      font-weight: 400;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    a { text-decoration: none; color: inherit; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-    section { padding: 40px 20px; background-color: var(--bg-main); color: var(--text-main); }
-
-    .divider {
-      border: 0;
-      height: 1px;
-      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
-      margin: 40px auto;
-      max-width: 600px;
-      width: 80%;
-    }
-
-    .section-title {
-      font-family: 'Bodoni Moda', Georgia, serif !important;
-      font-size: 3rem !important;
-      font-weight: 400 !important;
-      letter-spacing: 6px !important;
-      text-transform: uppercase !important;
-      color: #000000 !important;
-      margin-bottom: 20px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 28px;
-      background-color: #000000;
-      color: #ffffff;
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-radius: 30px;
-      transition: all 0.3s ease;
-      margin-top: 15px;
-      border: 1px solid #000000;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .btn:hover { background-color: #333333; color: #ffffff; transform: translateY(-2px); }
-
-    .hero {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      background-image: url("img/pareja-cogidos-mano.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #ffffff;
-      padding: 0;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 1;
-    }
-
-    .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; }
-
-    .hero-title {
-      font-family: 'Bodoni Moda', Georgia, serif !important;
-      font-size: 5rem !important;
-      font-weight: 400 !important;
-      color: #ffffff !important;
-      margin-bottom: 15px;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .hero-title .ampersand-hero {
-      font-family: 'Elsie Swash Caps', serif !important;
-      font-style: italic !important;
-      font-size: 5.5rem !important;
-      color: #ffffff !important;
-      text-transform: lowercase !important;
-      line-height: 1 !important;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-    }
-
-    .nos-casamos {
-      font-family: var(--font-serif);
-      font-size: 1.8rem;
-      letter-spacing: 4px;
-      color: #ffffff;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-      margin-top: 10px;
-    }
-
-    .scroll-down {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      color: #ffffff;
-      font-size: 1.5rem;
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-      40% { transform: translate(-50%, -10px); }
-      60% { transform: translate(-50%, -5px); }
-    }
-
-    .date-section { font-size: 2.1rem !important; line-height: 1.8; font-weight: 300; }
-
-    #la-fecha .descripcion {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      color: #000000;
-      max-width: 650px;
-      margin: 0 auto 30px auto;
-      line-height: 1.8;
-      text-transform: none;
-    }
-
-    #la-fecha h2.titulo-bodoni {
-      font-family: 'Bodoni Moda', Georgia, serif !important;
-      font-size: 3.5rem !important;
-      font-weight: 400 !important;
-      letter-spacing: 6px !important;
-      text-transform: uppercase !important;
-      color: #000000 !important;
-      margin-bottom: 10px !important;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    #la-fecha h2.titulo-bodoni .y-cursiva {
-      font-family: 'Elsie Swash Caps', serif !important;
-      font-style: italic !important;
-      font-weight: 400 !important;
-      font-size: 4rem !important;
-      text-transform: lowercase !important;
-      line-height: 1 !important;
-      margin-top: 5px;
-    }
-
-    #la-fecha .date-display {
-      font-family: 'Bodoni Moda', Georgia, serif !important;
-      font-size: 4rem !important;
-      font-weight: 400 !important;
-      letter-spacing: 8px !important;
-      color: #000000 !important;
-      margin-top: 10px !important;
-    }
-
-    .locations-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 50px;
-      justify-content: center;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .location-card {
-      background-color: #ffffff !important;
-      border: 2px solid #000000 !important;
-      padding: 30px 18px 20px 18px !important;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      box-sizing: border-box;
-      position: relative !important;
-      border-radius: 0px !important;
-    }
-
-    .card-title-overlapped {
-      position: absolute !important;
-      top: -30px !important; 
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-      background-color: #ffffff !important;
-      padding: 0 22px !important;
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      z-index: 100 !important;
-      white-space: nowrap;
-    }
-
-    .card-prefix {
-      font-family: 'Cormorant Garamond', serif !important;
-      font-style: italic !important;
-      font-weight: 300 !important;
-      font-size: 22px !important;
-      color: #000000 !important;
-      margin-bottom: 2px !important;
-      text-transform: none !important;
-      line-height: 1 !important;
-    }
-
-    .card-main-title {
-      font-family: 'Bodoni Moda', Georgia, serif !important;
-      font-weight: 400 !important;
-      font-size: 24px !important;
-      color: #000000 !important;
-      text-transform: uppercase !important;
-      letter-spacing: 4px !important;
-      margin: 0 !important;
-      line-height: 1 !important;
-    }
-
-    .location-illustration {
-      width: 100%;
-      max-width: 320px;
-      height: 190px;
-      object-fit: contain;
-      margin: 10px 0 8px 0;
-      filter: grayscale(100%) contrast(120%);
-    }
-
-    .location-name-group { margin-bottom: 10px; }
-
-    .location-type {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 300;
-      font-size: 22px;
-      color: #000000;
-      margin-bottom: 2px;
-    }
-
-    .location-specific-name {
-      font-family: 'Bodoni Moda', Georgia, serif !important;
-      font-weight: 400 !important;
-      font-size: 25px !important;
-      color: #000000 !important;
-      text-transform: uppercase !important;
-      letter-spacing: 3px !important;
-      margin: 0;
-    }
-
-    .location-description {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 300;
-      font-size: 13.5px;
-      line-height: 1.7;
-      color: #333333;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 5px;
-      max-width: 100%;
-    }
-
-    .countdown-container { display: flex; justify-content: center; gap: 35px; margin-top: 25px; }
-
-    .time-box {
-      background: transparent !important;
-      padding: 0 !important;
-      min-width: 60px;
-      border: none !important;
-      box-shadow: none !important;
-    }
-
-    .time-box span { display: block; }
-
-    .time-value {
-      font-family: 'Bodoni Moda', Georgia, serif !important;
-      font-size: 3.5rem;
-      color: #000000;
-      font-weight: 400;
-      line-height: 1;
-    }
-
-    .time-label {
-      font-family: 'Cormorant Garamond', serif !important;
-      font-style: italic !important;
-      font-weight: 300 !important;
-      font-size: 20px !important;
-      text-transform: none !important;
-      letter-spacing: 0 !important;
-      color: #000000 !important;
-      margin-top: 2px;
-    }
-
-    .hotels-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-      margin-top: 20px;
-      max-width: 1100px;
-    }
-
-    .hotel-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      text-align: center;
-      margin: 0;
-      padding: 25px;
-      background: #ffffff;
-      border: 1px solid #e0e0e0;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      border-radius: 7px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-decoration: none;
-      color: inherit;
-      cursor: pointer;
-    }
-
-    .hotel-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-    }
-
-    .hotel-info { margin-bottom: 15px; }
-
-    .hotel-card h3 {
-      font-family: 'Bodoni Moda', Georgia, serif;
-      margin-bottom: 10px;
-      color: #000000;
-      font-size: 1.2rem;
-    }
-
-    .hotel-card p {
-      font-family: var(--font-serif);
-      font-size: 1.30rem;
-      margin-bottom: 5px;
-      color: #333333;
-      line-height: 1.4;
-    }
-
-    .hotel-map {
-      width: 100%;
-      height: 280px;
-      border: 1px solid #000000;
-      border-radius: 8px;
-      margin-top: 15px;
-      filter: grayscale(80%);
-      transition: filter 0.3s ease;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hotel-map:hover { filter: grayscale(0%); }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 6px;
-      transition: transform 0.4s ease, filter 0.4s ease;
-      filter: grayscale(100%) brightness(1.2) contrast(0.65);
-    }
-
-    .gallery-grid img:hover {
-      transform: scale(1.03);
-      filter: grayscale(0%) brightness(1) contrast(1);
-    }
-
-    /* ESTILOS DE LA SECCIÓN DE VÍDEO YOUTUBE */
-    #video-especial {
-    position:relative;
-    width:100vw;
-    height:100vh;
-    overflow:hidden;
-    margin-left:calc(50% - 50vw);
-    
-    }
-
-    #video-especial .video-title-container { padding: 0 1px; margin-bottom: 1px; }
-    #video-especial .video-title-container .section-title { color: #ffffff !important; }
-
-    .video-wrapper-full {
-      position: relative;
-      width: 100%;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
-      height: 0;
-      overflow: hidden;
-    }
-
-    .video-wrapper-full iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 60%;
-      height: 60%;
-      border: 0;
-    }
-
-    #video-especial iframe{
-  
-    position:absolute;
-    top:50%;
-    left:50%;
-    width:120vw;
-    height:67.5vw;
-    min-height:120vh;
-    min-width:213vh;
-    transform:translate(-50%,-50%) scale(1.25);
-    border:0;
-    pointer-events:none;  
-
-
+  --bg-main: #ffffff;
+  --text-main: #000000;
+  --text-muted: #666666;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', sans-serif;
+  --font-cursive: 'Great Vibes', cursive;
 }
 
-    footer { padding: 30px 20px; background-color: #ffffff; color: #666666; font-size: 0.8rem; }
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
 
-    @media (max-width: 768px) {
-      .locations-grid, .hotels-grid { grid-template-columns: 1fr; }
-      .hotel-map { height: 240px; }
-      .location-card { padding: 30px 15px 20px 15px !important; }
-      .location-illustration { max-width: 250px; height: 150px; }
-      .hero-title { font-size: 3rem !important; gap: 8px; }
-      .hero-title .ampersand-hero { font-size: 3.5rem !important; }
-      #la-fecha h2.titulo-bodoni { font-size: 2.3rem !important; }
-      #la-fecha h2.titulo-bodoni .y-cursiva { font-size: 2.8rem !important; }
-      #la-fecha .date-display { font-size: 2.8rem !important; }
-      .section-title { font-size: 2.2rem !important; }
-      .countdown-container { gap: 15px; }
-      .time-value { font-size: 2.2rem !important; }
-      .card-prefix { font-size: 18px !important; }
-      .card-main-title { font-size: 20px !important; letter-spacing: 2px !important; }
-      .card-title-overlapped { top: -20px !important; padding: 0 12px !important; }
-      .location-specific-name { font-size: 20px !important; }
-      .location-description { font-size: 12px; }
-    }
+html { 
+  scroll-behavior: smooth; 
+}
 
-  /* Animación del corazón latiendo */
+body {
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  text-align: center;
+  margin: 0;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+a { 
+  text-decoration: none; 
+  color: inherit; 
+}
+
+.container { 
+  max-width: 1100px; 
+  margin: 0 auto; 
+  padding: 0 20px; 
+}
+
+section { 
+  padding: 40px 20px; 
+  background-color: var(--bg-main); 
+  color: var(--text-main); 
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+  margin: 40px auto;
+  max-width: 600px;
+  width: 80%;
+}
+
+.section-title {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 20px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+  border: 1px solid #000000;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover { 
+  background-color: #333333; 
+  color: #ffffff; 
+  transform: translateY(-2px); 
+}
+
+/* ==========================================
+   HERO / CABECERA
+   ========================================== */
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("img/pareja-cogidos-mano.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  padding: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-content { 
+  position: relative; 
+  z-index: 2; 
+  max-width: 900px; 
+  padding: 0 20px; 
+}
+
+.hero-title {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-size: 5rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 15px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero-title .ampersand-hero {
+  font-family: 'Elsie Swash Caps', serif;
+  font-style: italic;
+  font-size: 5.5rem;
+  color: #ffffff;
+  text-transform: lowercase;
+  line-height: 1;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.nos-casamos {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  letter-spacing: 4px;
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  margin-top: 10px;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: #ffffff;
+  font-size: 1.5rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+  40% { transform: translate(-50%, -10px); }
+  60% { transform: translate(-50%, -5px); }
+}
+
+/* ==========================================
+   SECCIÓN FECHA & DÓNDE Y CUÁNDO
+   ========================================== */
+.date-section { 
+  font-size: 2.1rem; 
+  line-height: 1.8; 
+  font-weight: 300; 
+}
+
+#la-fecha .descripcion {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: #000000;
+  max-width: 650px;
+  margin: 0 auto 30px auto;
+  line-height: 1.8;
+  text-transform: none;
+}
+
+/* --- DÓNDE Y CUÁNDO (TITULO PRINCIPAL) --- */
+#la-fecha h2.titulo-bodoni {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-size: 3.5rem;
+  font-weight: 400;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  word-break: break-word;
+  width: 100%;
+}
+
+#la-fecha h2.titulo-bodoni .y-cursiva {
+  font-family: 'Elsie Swash Caps', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 4rem;
+  text-transform: lowercase;
+  line-height: 1;
+  margin-top: 5px;
+}
+
+#la-fecha .date-display {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-size: 4rem;
+  font-weight: 400;
+  letter-spacing: 8px;
+  color: #000000;
+  margin-top: 10px;
+}
+
+/* ==========================================
+   TARJETAS DE UBICACIÓN
+   ========================================== */
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 50px;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 30px auto 0 auto;
+}
+
+.location-card {
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  padding: 30px 18px 20px 18px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 0px;
+}
+
+.card-title-overlapped {
+  position: absolute;
+  top: -28px; 
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  width: max-content;
+  max-width: 90%;
+}
+
+.card-prefix {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 22px;
+  color: #000000;
+  margin-bottom: 2px;
+  text-transform: none;
+  line-height: 1;
+}
+
+.card-main-title {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.location-illustration {
+  width: 100%;
+  max-width: 320px;
+  height: 190px;
+  object-fit: contain;
+  margin: 10px 0 8px 0;
+  filter: grayscale(100%) contrast(120%);
+}
+
+.location-name-group { 
+  margin-bottom: 10px; 
+}
+
+.location-type {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 22px;
+  color: #000000;
+  margin-bottom: 2px;
+}
+
+.location-specific-name {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-weight: 400;
+  font-size: 25px;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+.location-description {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #333333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  max-width: 100%;
+}
+
+/* ==========================================
+   TEMPORIZADOR (COUNTDOWN)
+   ========================================== */
+.countdown-container { 
+  display: flex; 
+  justify-content: center; 
+  gap: 35px; 
+  margin-top: 25px; 
+}
+
+.time-box {
+  background: transparent;
+  padding: 0;
+  min-width: 60px;
+  border: none;
+  box-shadow: none;
+}
+
+.time-box span { 
+  display: block; 
+}
+
+.time-value {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-size: 3.5rem;
+  color: #000000;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.time-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 20px;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #000000;
+  margin-top: 2px;
+}
+
+/* ==========================================
+   HOTELES & ALOJAMIENTOS
+   ========================================== */
+.hotels-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 20px;
+  max-width: 1100px;
+}
+
+.hotel-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  margin: 0;
+  padding: 25px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 7px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.hotel-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.hotel-info { 
+  margin-bottom: 15px; 
+}
+
+.hotel-card h3 {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  margin-bottom: 10px;
+  color: #000000;
+  font-size: 1.2rem;
+}
+
+.hotel-card p {
+  font-family: var(--font-serif);
+  font-size: 1.30rem;
+  margin-bottom: 5px;
+  color: #333333;
+  line-height: 1.4;
+}
+
+.hotel-map {
+  width: 100%;
+  height: 280px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  margin-top: 15px;
+  filter: grayscale(80%);
+  transition: filter 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.hotel-map:hover { 
+  filter: grayscale(0%); 
+}
+
+/* ==========================================
+   GALERÍA & VÍDEO YOUTUBE
+   ========================================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: grayscale(100%) brightness(1.2) contrast(0.65);
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.03);
+  filter: grayscale(0%) brightness(1) contrast(1);
+}
+
+#video-especial {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin-left: calc(50% - 50vw);
+}
+
+#video-especial .video-title-container { 
+  padding: 0 1px; 
+  margin-bottom: 1px; 
+}
+
+#video-especial .video-title-container .section-title { 
+  color: #ffffff; 
+}
+
+.video-wrapper-full {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-wrapper-full iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 60%;
+  border: 0;
+}
+
+#video-especial iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120vw;
+  height: 67.5vw;
+  min-height: 120vh;
+  min-width: 213vh;
+  transform: translate(-50%, -50%) scale(1.25);
+  border: 0;
+  pointer-events: none;
+}
+
+footer { 
+  padding: 30px 20px; 
+  background-color: #ffffff; 
+  color: #666666; 
+  font-size: 0.8rem; 
+}
+
+/* ==========================================
+   ANIMACIÓN CORAZÓN LATIENDO
+   ========================================== */
 .pulse2 {
   display: inline-block;
-  color: #f71e06; /* Color rojo elegante */
+  color: #f71e06;
   animation: heartbeat 1.2s infinite ease-in-out;
 }
 
 @keyframes heartbeat {
-  0% {
-    transform: scale(1);
+  0% { transform: scale(1); }
+  14% { transform: scale(1.25); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.25); }
+  70% { transform: scale(1); }
+}
+
+/* ===================================================
+   AJUSTES RESPONSIVE EXCLUSIVOS PARA MÓVILES (<= 768px)
+   =================================================== */
+@media (max-width: 768px) {
+  
+  /* Títulos de sección generales (Ej. ALOJAMIENTOS) */
+  .section-title { 
+    font-size: 1.8rem !important; 
+    letter-spacing: 2px !important;
+    word-break: break-word !important;
+    hyphens: auto !important;
+    padding: 0 10px !important;
   }
-  14% {
-    transform: scale(1.25);
+
+  /* Hero / Cabecera */
+  .hero-title { 
+    font-size: 2.3rem !important; 
+    gap: 5px !important; 
+    letter-spacing: 2px !important;
   }
-  28% {
-    transform: scale(1);
+  .hero-title .ampersand-hero { 
+    font-size: 2.8rem !important; 
   }
-  42% {
-    transform: scale(1.25);
+
+  /* DÓNDE & CUÁNDO (AJUSTE CORREGIDO) */
+  #la-fecha h2.titulo-bodoni { 
+    font-size: 1.6rem !important; 
+    letter-spacing: 2px !important;
+    gap: 8px !important;
+    padding: 0 10px !important;
   }
-  70% {
-    transform: scale(1);
+  
+  #la-fecha h2.titulo-bodoni .y-cursiva { 
+    font-size: 2.2rem !important; 
+    margin-top: 0 !important;
+  }
+
+  #la-fecha .date-display { 
+    font-size: 2.2rem !important; 
+    letter-spacing: 4px !important;
+  }
+
+  /* Tarjetas de Ubicación */
+  .locations-grid { 
+    grid-template-columns: 1fr; 
+    gap: 40px;
+    margin-top: 35px;
+  }
+  
+  .location-card { 
+    padding: 35px 12px 20px 12px !important; 
+  }
+  
+  .card-title-overlapped { 
+    top: -24px !important; 
+    padding: 0 8px !important; 
+  }
+
+  .card-prefix { 
+    font-size: 16px !important; 
+  }
+
+  .card-main-title { 
+    font-size: 16px !important; 
+    letter-spacing: 2px !important; 
+  }
+
+  .location-illustration { 
+    max-width: 220px; 
+    height: 130px; 
+  }
+
+  .location-specific-name { 
+    font-size: 18px !important; 
+    letter-spacing: 1.5px !important;
+  }
+
+  .location-description { 
+    font-size: 11.5px; 
+    letter-spacing: 0.5px;
+  }
+
+  /* Temporizador */
+  .countdown-container { 
+    gap: 10px; 
+  }
+  .time-value { 
+    font-size: 2rem !important; 
+  }
+  .time-label {
+    font-size: 16px !important;
+  }
+
+  /* Grid de Hoteles / Alojamientos */
+  .hotels-grid { 
+    grid-template-columns: 1fr; 
+    gap: 20px;
+  }
+
+  .hotel-card h3 {
+    font-size: 1.1rem;
+    word-break: break-word;
+  }
+
+  .hotel-map { 
+    height: 220px; 
   }
 }
