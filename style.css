@@ -676,7 +676,7 @@ footer {
 .imagen-punta-cana {
   width: 100%;
   height: auto;           /* Mantiene la proporción original sin deformar ni hacer zoom */
-  max-width: 1100px;      /* Se alinea perfectamente con el contenedor del resto de la web */
+  max-width: 100%;      /* Se alinea perfectamente con el contenedor del resto de la web */
   display: block;
   margin: 0 auto;
   border-radius: 8px;     /* Bordes suavemente redondeados en consonancia con las fotos de la galería */
