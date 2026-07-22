@@ -673,18 +673,33 @@ footer {
   align-items: center;
 }
 
+.descripcion-banner {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: #000000;
+  max-width: 650px;
+  margin: 0 auto 25px auto;
+  line-height: 1.8;
+  text-transform: none;
+  text-align: center;
+}
+
+/* Reducción suave para pantallas de móvil */
+@media (max-width: 768px) {
+  .descripcion-banner {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    padding: 0 10px;
+  }
+}
+
 .imagen-punta-cana {
-  width: 100%;
+  width: 80%;
   height: auto;           /* Mantiene la proporción original sin deformar ni hacer zoom */
   max-width: 100%;      /* Se alinea perfectamente con el contenedor del resto de la web */
   display: block;
   margin: 0 auto;
   border-radius: 8px;     /* Bordes suavemente redondeados en consonancia con las fotos de la galería */
   object-fit: contain;    /* Garantiza que la imagen se vea 100% entera sin recortes */
-}
 
-@media (max-width: 768px) {
-  .banner-imagen {
-    padding: 10px 0;
-  }
 }
