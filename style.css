@@ -202,7 +202,6 @@ section {
   text-transform: none;
 }
 
-/* --- DÓNDE Y CUÁNDO (TITULO PRINCIPAL) --- */
 #la-fecha h2.titulo-bodoni {
   font-family: 'Bodoni Moda', Georgia, serif;
   font-size: 3.5rem;
@@ -410,13 +409,11 @@ section {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   border-radius: 7px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-decoration: none;
   color: inherit;
-  cursor: pointer;
 }
 
 .hotel-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
 }
 
@@ -431,12 +428,79 @@ section {
   font-size: 1.2rem;
 }
 
-.hotel-card p {
+.hotel-dates {
   font-family: var(--font-serif);
   font-size: 1.30rem;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   color: #333333;
   line-height: 1.4;
+}
+
+/* ESTILOS PARA EL "LEER MÁS / SABER MÁS" */
+.leer-mas-details {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.leer-mas-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000000;
+  cursor: pointer;
+  list-style: none; /* Oculta la flecha por defecto */
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.leer-mas-btn::-webkit-details-marker {
+  display: none; /* Para Safari */
+}
+
+.leer-mas-btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.leer-mas-details[open] .leer-mas-btn {
+  margin-bottom: 12px;
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
+.leer-mas-details[open] .leer-mas-btn span::after {
+  content: ' ▲';
+}
+
+.leer-mas-btn span::after {
+  content: ' ▼';
+  font-size: 0.65rem;
+}
+
+.hotel-texto-detallado {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: #444444;
+  line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-word;
+  padding: 5px 10px 0 10px;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hotel-map-link {
+  display: block;
+  text-decoration: none;
 }
 
 .hotel-map {
@@ -456,7 +520,7 @@ section {
 }
 
 /* ==========================================
-   GALERÍA & VÍDEO YOUTUBE
+   GALERÍA
    ========================================== */
 .gallery-grid {
   display: grid;
@@ -479,53 +543,37 @@ section {
   filter: grayscale(0%) brightness(1) contrast(1);
 }
 
-#video-especial {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  margin-left: calc(50% - 50vw);
-}
-
-#video-especial .video-title-container { 
-  padding: 0 1px; 
-  margin-bottom: 1px; 
-}
-
-#video-especial .video-title-container .section-title { 
-  color: #ffffff; 
-}
-
-.video-wrapper-full {
-  position: relative;
+/* ==========================================
+   SECCIÓN IMAGEN BANNER (PUNTA CANA)
+   ========================================== */
+.banner-imagen {
   width: 100%;
-  max-width: 1000px;
+  padding: 20px 0;
+  background-color: var(--bg-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.descripcion-banner {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: #000000;
+  max-width: 650px;
+  margin: 0 auto 25px auto;
+  line-height: 1.8;
+  text-transform: none;
+  text-align: center;
+}
+
+.imagen-punta-cana {
+  width: 80%;
+  height: auto;
+  max-width: 100%;
+  display: block;
   margin: 0 auto;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-}
-
-.video-wrapper-full iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 60%;
-  height: 60%;
-  border: 0;
-}
-
-#video-especial iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120vw;
-  height: 67.5vw;
-  min-height: 120vh;
-  min-width: 213vh;
-  transform: translate(-50%, -50%) scale(1.25);
-  border: 0;
-  pointer-events: none;
+  border-radius: 8px;
+  object-fit: contain;
 }
 
 footer { 
@@ -535,9 +583,6 @@ footer {
   font-size: 0.8rem; 
 }
 
-/* ==========================================
-   ANIMACIÓN CORAZÓN LATIENDO
-   ========================================== */
 .pulse2 {
   display: inline-block;
   color: #f71e06;
@@ -557,7 +602,6 @@ footer {
    =================================================== */
 @media (max-width: 768px) {
   
-  /* Títulos de sección generales (Ej. ALOJAMIENTOS) */
   .section-title { 
     font-size: 1.8rem !important; 
     letter-spacing: 2px !important;
@@ -566,7 +610,6 @@ footer {
     padding: 0 10px !important;
   }
 
-  /* Hero / Cabecera */
   .hero-title { 
     font-size: 2.3rem !important; 
     gap: 5px !important; 
@@ -576,7 +619,6 @@ footer {
     font-size: 2.8rem !important; 
   }
 
-  /* DÓNDE & CUÁNDO (AJUSTE CORREGIDO) */
   #la-fecha h2.titulo-bodoni { 
     font-size: 1.6rem !important; 
     letter-spacing: 2px !important;
@@ -594,7 +636,6 @@ footer {
     letter-spacing: 4px !important;
   }
 
-  /* Tarjetas de Ubicación */
   .locations-grid { 
     grid-template-columns: 1fr; 
     gap: 40px;
@@ -634,7 +675,6 @@ footer {
     letter-spacing: 0.5px;
   }
 
-  /* Temporizador */
   .countdown-container { 
     gap: 10px; 
   }
@@ -645,7 +685,6 @@ footer {
     font-size: 16px !important;
   }
 
-  /* Grid de Hoteles / Alojamientos */
   .hotels-grid { 
     grid-template-columns: 1fr; 
     gap: 20px;
@@ -659,47 +698,10 @@ footer {
   .hotel-map { 
     height: 220px; 
   }
-}
 
-/* ==========================================
-   SECCIÓN IMAGEN BANNER (PUNTA CANA)
-   ========================================== */
-.banner-imagen {
-  width: 100%;
-  padding: 20px 0;
-  background-color: var(--bg-main);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.descripcion-banner {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem;
-  color: #000000;
-  max-width: 650px;
-  margin: 0 auto 25px auto;
-  line-height: 1.8;
-  text-transform: none;
-  text-align: center;
-}
-
-/* Reducción suave para pantallas de móvil */
-@media (max-width: 768px) {
   .descripcion-banner {
     font-size: 1.2rem;
     margin-bottom: 15px;
     padding: 0 10px;
   }
-}
-
-.imagen-punta-cana {
-  width: 80%;
-  height: auto;           /* Mantiene la proporción original sin deformar ni hacer zoom */
-  max-width: 100%;      /* Se alinea perfectamente con el contenedor del resto de la web */
-  display: block;
-  margin: 0 auto;
-  border-radius: 8px;     /* Bordes suavemente redondeados en consonancia con las fotos de la galería */
-  object-fit: contain;    /* Garantiza que la imagen se vea 100% entera sin recortes */
-
 }
