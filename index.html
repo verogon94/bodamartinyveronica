@@ -134,6 +134,7 @@
         <div class="hotel-card">
           <div class="hotel-info">
             <h3><strong>Luxury <sup>TM</sup> Secrets <sup>®</sup> Cap Cana Resort & Spa 5 ★★★★★ Adults Only</strong></h3>
+            <br>
             <p class="hotel-dates">— del 28 al 30 de noviembre —</p>
             
             <details class="leer-mas-details">
@@ -155,6 +156,28 @@
       </div>
     </div>
   </section>
+
+  <hr class="divider">
+
+  <!-- ITINERARIO DE BODA -->
+  <section class="itinerary-section">
+    <div class="container">
+      <h2 class="section-title">ITINERARIO DE BODA</h2>
+      <br>
+      <div class="itinerary-grid">
+        <div class="itinerary-card">
+          <img src="img/itinerario-madrid.svg" alt="Itinerario Madrid" class="itinerary-img zoomable-img">
+          <p class="itinerary-caption">Haz clic en la imagen para verlo en grande</p>
+        </div>
+        <div class="itinerary-card">
+          <img src="img/itinerario-puntacana.svg" alt="Itinerario Punta Cana" class="itinerary-img zoomable-img">
+          <p class="itinerary-caption">Haz clic en la imagen para verlo en grande</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
 
   <!-- GALERÍA -->
   <section>
@@ -184,7 +207,21 @@
     <p>2026 © Creado por Verónica y Martín con mucho <span class="fa fa-heart pulse2"></span> para vosotros</p>
   </footer>
 
+  <!-- MODAL / LIGHTBOX PARA AMPLIAR IMÁGENES -->
+  <div id="image-modal" class="modal-overlay">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modal-img" alt="Vista ampliada">
+  </div>
+
+  <!-- REPRODUCTOR DE AUDIO DE FONDO -->
+  <audio id="musica-final" preload="auto">
+    <!-- Reemplaza 'audio/cancion.mp3' por la ruta de tu archivo de música -->
+    <source src="audio/Vivimos-siempre-juntos.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
   <script>
+    // Cuenta atrás
     const targetDate = new Date(2026, 10, 28, 17, 0, 0).getTime();
     function updateCountdown() {
       const now = new Date().getTime();
@@ -204,7 +241,51 @@
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();
-  </script>
 
+    // Modal para zoom de itinerarios
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    const closeBtn = document.getElementsByClassName('modal-close')[0];
+
+    document.querySelectorAll('.zoomable-img').forEach(img => {
+      img.addEventListener('click', function() {
+        modal.style.display = 'flex';
+        modalImg.src = this.src;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+
+// Variable para controlar que la canción solo intente reproducirse una vez
+let musicaSonada = false;
+
+window.addEventListener('scroll', () => {
+  // Calculamos si el usuario ha llegado al final de la pantalla
+  const scrollPosicion = window.innerHeight + window.scrollY;
+  const limiteInferior = document.documentElement.scrollHeight - 50; // Se activa 50px antes del fondo total
+
+  if (scrollPosicion >= limiteInferior && !musicaSonada) {
+    const audio = document.getElementById('musica-final');
+    
+    // Intentamos reproducir el audio
+    audio.play().then(() => {
+      musicaSonada = true; // Marcamos como reproducida para no reiniciarla continuamente
+    }).catch(error => {
+      // Los navegadores modernos bloquean el audio automático si el usuario NO ha interactuado
+      // (hecho clic o tap) en la página previamente.
+      console.log("El navegador bloqueó la reproducción automática:", error);
+    });
+  }
+});
+ </script>
 </body>
 </html>
