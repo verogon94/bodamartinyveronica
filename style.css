@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&display=swap');
+
 :root {
-  --bg-main: #ffffff;
-  --text-main: #000000;
-  --text-muted: #666666;
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Montserrat', sans-serif;
-  --font-cursive: 'Great Vibes', cursive;
+  /* Paleta Siglo de Oro / Carta Cervantina */
+  --bg-main: #fcf5e4;           /* Amarillo ocre suave estilo pergamino */
+  --text-main: #861802;         /* Terracota / Teja profundo para textos principales */
+  --text-muted: #A04A38;        /* Terracota suave para detalles secundarios */
+  --border-color: #8C311E;      /* Borde terracota para enmarcar */
+  
+  /* Fuentes Cervantinas */
+  --font-title: 'Cinzel', serif;
+  --font-decorative: 'Cinzel Decorative', serif;
+  --font-body: 'IM Fell English', serif;
 }
 
 * { 
@@ -18,8 +24,9 @@ html {
 }
 
 body {
-  font-family: var(--font-sans);
-  line-height: 1.7;
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  line-height: 1.8;
   text-align: center;
   margin: 0;
   background-color: var(--bg-main);
@@ -28,10 +35,15 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: var(--font-serif);
-  font-weight: 400;
+  font-family: var(--font-title);
+  font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
+  color: var(--text-main);
+}
+
+p {
+  font-family: var(--font-body);
 }
 
 a { 
@@ -54,45 +66,23 @@ section {
 .divider {
   border: 0;
   height: 1px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to right, rgba(124, 40, 24, 0), rgba(55, 9, 0, 0.4), rgba(124, 40, 24, 0));
   margin: 40px auto;
   max-width: 600px;
   width: 80%;
 }
 
 .section-title {
-  font-family: 'Bodoni Moda', Georgia, serif;
-  font-size: 3rem;
-  font-weight: 400;
-  letter-spacing: 6px;
+  font-family: var(--font-title);
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 5px;
   text-transform: uppercase;
-  color: #000000;
+  color: var(--text-main);
   margin-bottom: 20px;
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 28px;
-  background-color: #000000;
-  color: #ffffff;
-  font-size: 0.85rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  border-radius: 30px;
-  transition: all 0.3s ease;
-  margin-top: 15px;
-  border: 1px solid #000000;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.btn:hover { 
-  background-color: #333333; 
-  color: #ffffff; 
-  transform: translateY(-2px); 
 }
 
 /* ==========================================
@@ -120,7 +110,7 @@ section {
   left: 0; 
   width: 100%; 
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(49, 26, 26, 0.5);
   z-index: 1;
 }
 
@@ -132,14 +122,14 @@ section {
 }
 
 .hero-title {
-  font-family: 'Bodoni Moda', Georgia, serif;
-  font-size: 5rem;
-  font-weight: 400;
-  color: #ffffff;
+  font-family: var(--font-decorative);
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: #F3E9D2;
   margin-bottom: 15px;
-  letter-spacing: 6px;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,21 +138,20 @@ section {
 }
 
 .hero-title .ampersand-hero {
-  font-family: 'Elsie Swash Caps', serif;
+  font-family: var(--font-body);
   font-style: italic;
-  font-size: 5.5rem;
-  color: #ffffff;
+  font-size: 5rem;
+  color: #F3E9D2;
   text-transform: lowercase;
   line-height: 1;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .nos-casamos {
-  font-family: var(--font-serif);
+  font-family: var(--font-title);
   font-size: 1.8rem;
-  letter-spacing: 4px;
-  color: #ffffff;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  letter-spacing: 6px;
+  color: #F3E9D2;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
   margin-top: 10px;
 }
 
@@ -172,8 +161,8 @@ section {
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  color: #ffffff;
-  font-size: 1.5rem;
+  color: #F3E9D2;
+  font-size: 1.8rem;
   animation: bounce 2s infinite;
 }
 
@@ -184,58 +173,22 @@ section {
 }
 
 /* ==========================================
-   SECCIÓN FECHA & DÓNDE Y CUÁNDO
+   SECCIÓN FECHA & DESCRIPCIÓN
    ========================================== */
 .date-section { 
   font-size: 2.1rem; 
   line-height: 1.8; 
-  font-weight: 300; 
 }
 
-#la-fecha .descripcion {
-  font-family: 'Cormorant Garamond', serif;
+#la-fecha .descripcion,
+.descripcion {
+  font-family: var(--font-body);
   font-size: 1.4rem;
-  color: #000000;
-  max-width: 650px;
-  margin: 0 auto 30px auto;
+  color: var(--text-main);
+  max-width: 680px;
+  margin: 0 auto 20px auto;
   line-height: 1.8;
   text-transform: none;
-}
-
-#la-fecha h2.titulo-bodoni {
-  font-family: 'Bodoni Moda', Georgia, serif;
-  font-size: 3.5rem;
-  font-weight: 400;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: #000000;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  word-break: break-word;
-  width: 100%;
-}
-
-#la-fecha h2.titulo-bodoni .y-cursiva {
-  font-family: 'Elsie Swash Caps', serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 4rem;
-  text-transform: lowercase;
-  line-height: 1;
-  margin-top: 5px;
-}
-
-#la-fecha .date-display {
-  font-family: 'Bodoni Moda', Georgia, serif;
-  font-size: 4rem;
-  font-weight: 400;
-  letter-spacing: 8px;
-  color: #000000;
-  margin-top: 10px;
 }
 
 /* ==========================================
@@ -251,25 +204,27 @@ section {
 }
 
 .location-card {
-  background-color: #ffffff;
-  border: 2px solid #000000;
-  padding: 30px 18px 20px 18px;
+  background-color: var(--bg-main);
+  border: 2px solid var(--border-color);
+  padding: 25px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   box-sizing: border-box;
   position: relative;
-  border-radius: 0px;
+  min-height: 420px;
+  box-shadow: 0 4px 15px rgba(124, 40, 24, 0.08);
 }
 
 .card-title-overlapped {
   position: absolute;
-  top: -28px; 
+  top: -24px; 
   left: 50%;
   transform: translateX(-50%);
-  background-color: #ffffff;
+  background-color: var(--bg-main);
+  border: none;
   padding: 0 15px;
   display: flex;
   flex-direction: column;
@@ -280,69 +235,115 @@ section {
 }
 
 .card-prefix {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-style: italic;
-  font-weight: 300;
-  font-size: 22px;
-  color: #000000;
-  margin-bottom: 2px;
-  text-transform: none;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--text-main);
+  margin-bottom: -2px;
   line-height: 1;
 }
 
 .card-main-title {
-  font-family: 'Bodoni Moda', Georgia, serif;
-  font-weight: 400;
-  font-size: 24px;
-  color: #000000;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  margin: 0;
-  line-height: 1.2;
-}
-
-.location-illustration {
-  width: 100%;
-  max-width: 320px;
-  height: 190px;
-  object-fit: contain;
-  margin: 10px 0 8px 0;
-  filter: grayscale(100%) contrast(120%);
-}
-
-.location-name-group { 
-  margin-bottom: 10px; 
-}
-
-.location-type {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-weight: 300;
-  font-size: 22px;
-  color: #000000;
-  margin-bottom: 2px;
-}
-
-.location-specific-name {
-  font-family: 'Bodoni Moda', Georgia, serif;
-  font-weight: 400;
-  font-size: 25px;
-  color: #000000;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--text-main);
   text-transform: uppercase;
   letter-spacing: 3px;
   margin: 0;
+  line-height: 1.1;
+}
+
+.reveal-area {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+.reveal-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-main);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.illustration-cover {
+  max-width: 95%;
+  max-height: 260px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: sepia(60%) hue-rotate(320deg) contrast(110%);
+}
+
+.click-hint {
+  margin-top: 20px;
+  background-color: var(--text-main);
+  color: var(--bg-main);
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-family: var(--font-title);
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.reveal-area:hover .click-hint {
+  transform: scale(1.05);
+  background-color: var(--border-color);
+}
+
+.card-hidden-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.location-illustration {
+  max-width: 320px;
+  height: 190px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  filter: sepia(60%) hue-rotate(320deg) contrast(110%);
 }
 
 .location-description {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  font-size: 13.5px;
-  line-height: 1.7;
-  color: #333333;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 5px;
-  max-width: 100%;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  letter-spacing: 0.5px;
+}
+
+.reveal-area.revealed .reveal-cover {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.reveal-area.revealed .card-hidden-content {
+  opacity: 1;
 }
 
 /* ==========================================
@@ -360,7 +361,6 @@ section {
   padding: 0;
   min-width: 60px;
   border: none;
-  box-shadow: none;
 }
 
 .time-box span { 
@@ -368,22 +368,63 @@ section {
 }
 
 .time-value {
-  font-family: 'Bodoni Moda', Georgia, serif;
+  font-family: var(--font-title);
   font-size: 3.5rem;
-  color: #000000;
-  font-weight: 400;
+  color: var(--text-main);
+  font-weight: 700;
   line-height: 1;
 }
 
 .time-label {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-style: italic;
-  font-weight: 300;
   font-size: 20px;
-  text-transform: none;
-  letter-spacing: 0;
-  color: #000000;
+  color: var(--text-muted);
   margin-top: 2px;
+}
+
+/* ==========================================
+   SECCIÓN "¿Y DÓNDE OS LLEVAMOS?" CON IMAGEN MAPA
+   ========================================== */
+.detalles-mapa-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.texto-detalles {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  color: var(--text-main);
+}
+
+.btn-img-mapa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.btn-img-mapa:hover {
+  transform: scale(1.15) rotate(4deg);
+}
+
+.img-mapa-link {
+  width: 42px;
+  height: 42px;
+  object-fit: scale-down;
+  border-radius: 50%;
+  filter: sepia(40%);
+  transition: filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-img-mapa:hover .img-mapa-link {
+  filter: sepia(0%);
+  box-shadow: 0 4px 10px rgba(124, 40, 24, 0.4);
 }
 
 /* ==========================================
@@ -404,17 +445,17 @@ section {
   text-align: center;
   margin: 0;
   padding: 25px;
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  border-radius: 7px;
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 6px 20px rgba(124, 40, 24, 0.08);
+  border-radius: 4px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   color: inherit;
 }
 
 .hotel-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 25px rgba(124, 40, 24, 0.15);
 }
 
 .hotel-info { 
@@ -422,55 +463,54 @@ section {
 }
 
 .hotel-card h3 {
-  font-family: 'Bodoni Moda', Georgia, serif;
+  font-family: var(--font-title);
   margin-bottom: 10px;
-  color: #000000;
-  font-size: 1.2rem;
+  color: var(--text-main);
+  font-size: 1.15rem;
 }
 
 .hotel-dates {
-  font-family: var(--font-serif);
-  font-size: 1.30rem;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1.25rem;
   margin-bottom: 10px;
-  color: #333333;
-  line-height: 1.4;
+  color: var(--text-muted);
 }
 
-/* ESTILOS PARA EL "LEER MÁS / SABER MÁS" */
 .leer-mas-details {
   margin-top: 10px;
   text-align: center;
 }
 
 .leer-mas-btn {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-title);
   font-size: 0.75rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #000000;
+  color: var(--text-main);
   cursor: pointer;
-  list-style: none; /* Oculta la flecha por defecto */
+  list-style: none;
   display: inline-block;
   padding: 6px 16px;
-  border: 1px solid #000000;
+  border: 1px solid var(--border-color);
   border-radius: 20px;
   transition: all 0.3s ease;
   user-select: none;
 }
 
 .leer-mas-btn::-webkit-details-marker {
-  display: none; /* Para Safari */
+  display: none;
 }
 
 .leer-mas-btn:hover {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: var(--text-main);
+  color: var(--bg-main);
 }
 
 .leer-mas-details[open] .leer-mas-btn {
   margin-bottom: 12px;
-  background-color: #f0f0f0;
-  color: #000000;
+  background-color: var(--border-color);
+  color: var(--bg-main);
 }
 
 .leer-mas-details[open] .leer-mas-btn span::after {
@@ -483,9 +523,9 @@ section {
 }
 
 .hotel-texto-detallado {
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  color: #444444;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--text-main);
   line-height: 1.6;
   text-align: justify;
   text-justify: inter-word;
@@ -506,21 +546,21 @@ section {
 .hotel-map {
   width: 100%;
   height: 280px;
-  border: 1px solid #000000;
-  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
   margin-top: 15px;
-  filter: grayscale(80%);
+  filter: sepia(40%);
   transition: filter 0.3s ease;
   position: relative;
   z-index: 2;
 }
 
 .hotel-map:hover { 
-  filter: grayscale(0%); 
+  filter: sepia(0%); 
 }
 
 /* ==========================================
-   ITINERARIO DE BODA
+   ITINERARIO DE BODA Y LISTA DE APAREJOS
    ========================================== */
 .itinerary-grid {
   display: flex;
@@ -535,16 +575,22 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   max-width: 450px;
   width: 100%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .itinerary-img {
   width: 100%;
-  max-width: 400px; /* Tamaños medianos */
+  max-width: 400px;
   height: auto;
   display: block;
+  margin: 0 auto;
   cursor: pointer;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -554,15 +600,54 @@ section {
 }
 
 .itinerary-caption {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-style: italic;
   font-size: 1.1rem;
   color: var(--text-muted);
   margin-top: 10px;
+  text-align: center;
 }
 
 /* ==========================================
-   MODAL / OVERLAY LIGHTBOX (ZOOM OPTIMIZADO)
+   SECCIÓN NUEVAS AVENTURAS / EXCURSIONES
+   ========================================== */
+.descripcion-aventuras {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  color: var(--text-main);
+  max-width: 650px;
+  margin: 15px auto 25px auto;
+  line-height: 1.8;
+}
+
+.aventuras-link-wrapper {
+  margin-top: 15px;
+}
+
+.aventuras-btn {
+  display: inline-block;
+  font-family: var(--font-title);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-main);
+  border: 1.5px solid var(--border-color);
+  padding: 12px 28px;
+  border-radius: 25px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(124, 40, 24, 0.08);
+}
+
+.aventuras-btn:hover {
+  background-color: var(--text-main);
+  color: var(--bg-main);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(124, 40, 24, 0.2);
+}
+
+/* ==========================================
+   MODAL / OVERLAY LIGHTBOX
    ========================================== */
 .modal-overlay {
   display: none;
@@ -572,32 +657,33 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.88); /* Fondo oscuro e intensificado */
-  backdrop-filter: blur(6px);            /* Desenfoque para aislar el resto de la web */
+  background-color: rgba(30, 30, 30, 0.92); /* Fondo gris oscuro neutro */
+  backdrop-filter: blur(6px);
   justify-content: center;
   align-items: center;
-  padding: 10px;                         /* Espaciado mínimo para maximizar la imagen */
-  overflow: auto;                        /* Permite scroll si la imagen es muy alta en móviles */
+  padding: 10px;
+  overflow: auto;
 }
 
 .modal-content {
   width: auto;
   height: auto;
-  max-width: 96vw;                       /* Maximiza el ancho disponible en pantalla */
-  max-height: 94vh;                      /* Maximiza la altura disponible en pantalla */
-  object-fit: contain;                   /* Mantiene la proporción sin distorsionar */
-  background-color: #ffffff;             /* Tarjeta blanca para resaltar el SVG */
-  padding: 15px;                         /* Espacio blanco limpio como marco */
-  border-radius: 8px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  max-width: 96vw;
+  max-height: 94vh;
+  object-fit: contain;
+  background-color: var(--bg-main);
+  padding: 15px;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
   animation: zoomIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .modal-close {
-  position: fixed;                       /* Se mantiene visible arriba a la derecha aun al hacer scroll */
+  position: fixed;
   top: 15px;
   right: 25px;
-  color: #ffffff;
+  color: #F3E9D2;
   font-size: 3rem;
   font-weight: bold;
   cursor: pointer;
@@ -608,20 +694,13 @@ section {
 }
 
 .modal-close:hover {
-  color: #dddddd;
+  color: var(--text-muted);
   transform: scale(1.15);
 }
 
-
 @keyframes zoomIn {
-  from { 
-    transform: scale(0.6); 
-    opacity: 0; 
-  }
-  to { 
-    transform: scale(1); 
-    opacity: 1; 
-  }
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 /* ==========================================
@@ -638,59 +717,89 @@ section {
   width: 100%;
   height: 220px;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 9px;
+  border: 1px solid var(--border-color);
   transition: transform 0.4s ease, filter 0.4s ease;
-  filter: grayscale(100%) brightness(1.2) contrast(0.65);
+  filter: sepia(70%) contrast(110%) brightness(103%);
 }
 
 .gallery-grid img:hover {
   transform: scale(1.03);
-  filter: grayscale(0%) brightness(1) contrast(1);
+  filter: sepia(0%) contrast(100%);
 }
 
 /* ==========================================
-   SECCIÓN IMAGEN BANNER (PUNTA CANA)
+   SECCIÓN IMAGEN BANNER FINAL (FULL-WIDTH CON OVERLAY Y TEXTO CENTRADO)
    ========================================== */
 .banner-imagen {
-  width: 100%;
-  padding: 20px 0;
-  background-color: var(--bg-main);
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  
+  background-image: url("img/imagen-pareja-panoramica.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  
+  height: 50vw;
+  max-height: 550px;
+  min-height: 320px;
+  
   display: flex;
+  align-items: flex-start;
   justify-content: center;
-  align-items: center;
+  padding-top: 55px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.181);
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+  text-align: center;
+  max-width: 800px;
 }
 
 .descripcion-banner {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem;
-  color: #000000;
-  max-width: 650px;
-  margin: 0 auto 25px auto;
-  line-height: 1.8;
-  text-transform: none;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 2.2rem;
+  color: #F3E9D2;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+  margin: 0;
+  line-height: 1.5;
   text-align: center;
 }
 
-.imagen-punta-cana {
-  width: 80%;
-  height: auto;
-  max-width: 100%;
-  display: block;
-  margin: 0 auto;
-  border-radius: 8px;
-  object-fit: contain;
-}
-
+/* ==========================================
+   FOOTER
+   ========================================== */
 footer { 
   padding: 30px 20px; 
-  background-color: #ffffff; 
-  color: #666666; 
-  font-size: 0.8rem; 
+  background-color: var(--bg-main); 
+  border-top: none;
+  color: var(--text-muted); 
+  font-family: var(--font-body);
+  font-size: 0.95rem; 
 }
 
 .pulse2 {
   display: inline-block;
-  color: #f71e06;
+  color: #a81c00;
   animation: heartbeat 1.2s infinite ease-in-out;
 }
 
@@ -703,42 +812,24 @@ footer {
 }
 
 /* ===================================================
-   AJUSTES RESPONSIVE EXCLUSIVOS PARA MÓVILES (<= 768px)
+   RESPONSIVE MÓVILES (<= 768px)
    =================================================== */
 @media (max-width: 768px) {
   
   .section-title { 
     font-size: 1.8rem !important; 
     letter-spacing: 2px !important;
-    word-break: break-word !important;
-    hyphens: auto !important;
     padding: 0 10px !important;
   }
 
   .hero-title { 
-    font-size: 2.3rem !important; 
+    font-size: 2.2rem !important; 
     gap: 5px !important; 
     letter-spacing: 2px !important;
   }
+
   .hero-title .ampersand-hero { 
-    font-size: 2.8rem !important; 
-  }
-
-  #la-fecha h2.titulo-bodoni { 
-    font-size: 1.6rem !important; 
-    letter-spacing: 2px !important;
-    gap: 8px !important;
-    padding: 0 10px !important;
-  }
-  
-  #la-fecha h2.titulo-bodoni .y-cursiva { 
-    font-size: 2.2rem !important; 
-    margin-top: 0 !important;
-  }
-
-  #la-fecha .date-display { 
-    font-size: 2.2rem !important; 
-    letter-spacing: 4px !important;
+    font-size: 2.6rem !important; 
   }
 
   .locations-grid { 
@@ -748,44 +839,28 @@ footer {
   }
   
   .location-card { 
-    padding: 35px 12px 20px 12px !important; 
-  }
-  
-  .card-title-overlapped { 
-    top: -24px !important; 
-    padding: 0 8px !important; 
+    padding: 25px 12px 20px 12px !important; 
+    min-height: 350px;
   }
 
-  .card-prefix { 
-    font-size: 16px !important; 
-  }
-
-  .card-main-title { 
-    font-size: 16px !important; 
-    letter-spacing: 2px !important; 
+  .illustration-cover {
+    max-width: 95%;
+    max-height: 220px;
   }
 
   .location-illustration { 
-    max-width: 220px; 
-    height: 130px; 
-  }
-
-  .location-specific-name { 
-    font-size: 18px !important; 
-    letter-spacing: 1.5px !important;
-  }
-
-  .location-description { 
-    font-size: 11.5px; 
-    letter-spacing: 0.5px;
+    max-width: 240px; 
+    height: 140px; 
   }
 
   .countdown-container { 
     gap: 10px; 
   }
+  
   .time-value { 
     font-size: 2rem !important; 
   }
+  
   .time-label {
     font-size: 16px !important;
   }
@@ -793,11 +868,6 @@ footer {
   .hotels-grid { 
     grid-template-columns: 1fr; 
     gap: 20px;
-  }
-
-  .hotel-card h3 {
-    font-size: 1.1rem;
-    word-break: break-word;
   }
 
   .hotel-map { 
@@ -809,26 +879,25 @@ footer {
     align-items: center;
   }
 
+  .banner-imagen {
+    height: 65vw;
+    min-height: 260px;
+    padding-top: 30px;
+  }
+  
   .descripcion-banner {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    padding: 0 10px;
+    font-size: 1.5rem;
   }
 
-  .modal-overlay {
-    padding: 5px;
-  }
-
-  .modal-content {
-    max-width: 98vw;
-    max-height: 88vh;
-    padding: 8px;                       /* Menos margen interno para ganar más área de zoom */
-    border-radius: 6px;
-  }
-
-  .modal-close {
-    top: 10px;
-    right: 15px;
-    font-size: 2.5rem;
-  }
+ /* ==========================================
+   ESTADO DESACTIVADO PARA BOTONES (.disabled)
+   ========================================== */
+.aventuras-btn.disabled,
+.donde-btn.disabled {
+  opacity: 0.55;             /* Apariencia atenuada */
+  cursor: not-allowed;       /* Cursor de no permitido */
+  pointer-events: none;      /* Inhabilita la acción de clic y hover */
+  filter: grayscale(40%);    /* Tono apagado acorde a la estética */
+  box-shadow: none;          /* Elimina elevación para dar sensación inactiva */
+}
 }
