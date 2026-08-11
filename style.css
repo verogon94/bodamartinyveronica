@@ -72,6 +72,42 @@ section {
   width: 80%;
 }
 
+/* ==========================================
+   SEPARADOR CON IMAGEN DECORATIVA (MÁS DISCRETO)
+   ========================================== */
+.separador-imagen-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1px auto 0 auto;     /* Espaciado superior mínimo (5px) y 0 abajo */
+  width: 100%;
+}
+
+.separador-img {
+  max-width: 220px;            /* Tamaño más contenido y elegante */
+  width: 80%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: sepia(50%) hue-rotate(320deg) contrast(105%); 
+}
+
+/* Reducimos también el espaciado superior de las tarjetas que vienen justo después */
+#ubicaciones {
+  padding-top: 1px;           /* Reduce el espacio que deja la propia sección */
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+  .separador-img {
+    max-width: 170px;
+  }
+  .separador-imagen-container {
+    margin: 5px auto 0 auto;
+  }
+  
+} 
+
 .section-title {
   font-family: var(--font-title);
   font-size: 2.8rem;
@@ -281,6 +317,7 @@ section {
   align-items: center;
   justify-content: center;
   transition: opacity 0.4s ease, visibility 0.4s ease;
+  
 }
 
 .illustration-cover {
