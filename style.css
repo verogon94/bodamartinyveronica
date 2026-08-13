@@ -84,8 +84,8 @@ section {
 }
 
 .separador-img {
-  max-width: 220px;            /* Tamaño más contenido y elegante */
-  width: 80%;
+  max-width: 300px;            /* Tamaño más contenido y elegante */
+  width: 100%;
   height: auto;
   display: block;
   object-fit: contain;
