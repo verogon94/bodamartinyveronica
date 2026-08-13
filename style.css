@@ -777,14 +777,16 @@ section {
 /* CAMBIO SOLICITADO: Sin cursor de mano y clics desactivados */
 .carousel-full-slide img {
   width: 100%;
-  height: 320px;
-  object-fit: cover;
+  aspect-ratio: 1 / 1;          /* <-- Fuerza la proporción cuadrada (1:1) */
+  height: auto;                 /* <-- Quitamos el height fijo (320px) para que no deforme */
+  object-fit: cover;            /* <-- Recorta la imagen limpiamente sin estirarla */
   display: block;
   cursor: default;
-  pointer-events: none; /* Desactiva la ampliación/clic */
+  pointer-events: none;
   filter: grayscale(60%);
   transition: filter 0.3s ease, transform 0.3s ease;
 }
+
 
 .carousel-full-slide img:hover {
   filter: sepia(0%) contrast(100%);
@@ -989,6 +991,13 @@ footer {
     font-size: 1.5rem;
   }
 
+  /* Muestra 2 imágenes en móvil en lugar de 4 para que se vean bien cuadradas */
+  .carousel-full-slide {
+    flex: 0 0 50%;
+    min-width: 50%;
+  }
+}
+
  /* ==========================================
    ESTADO DESACTIVADO PARA BOTONES (.disabled)
    ========================================== */
@@ -1000,4 +1009,4 @@ footer {
   filter: grayscale(40%);    /* Tono apagado acorde a la estética */
   box-shadow: none;          /* Elimina elevación para dar sensación inactiva */
 }
-}
+
