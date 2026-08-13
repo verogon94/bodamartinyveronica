@@ -740,30 +740,82 @@ section {
   to { transform: scale(1); opacity: 1; }
 }
 
+
 /* ==========================================
-   GALERÍA
+   CARRUSEL PANORÁMICO (4 IMÁGENES & SIN CLIC)
    ========================================== */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
-  margin-top: 30px;
+.gallery-section-full {
+  padding: 40px 0;
+  overflow: hidden;
 }
 
-.gallery-grid img {
+.carousel-full-wrapper {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  background-color: var(--bg-main);
+}
+
+.carousel-full-track {
+  display: flex;
   width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 9px;
-  border: 1px solid var(--border-color);
-  transition: transform 0.4s ease, filter 0.4s ease;
-  filter: sepia(70%) contrast(110%) brightness(103%);
+  will-change: transform;
 }
 
-.gallery-grid img:hover {
-  transform: scale(1.03);
+/* CAMBIO SOLICITADO: Muestra exactamente 4 imágenes (25% cada una) */
+.carousel-full-slide {
+  flex: 0 0 25%;
+  min-width: 25%;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* CAMBIO SOLICITADO: Sin cursor de mano y clics desactivados */
+.carousel-full-slide img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  cursor: default;
+  pointer-events: none; /* Desactiva la ampliación/clic */
+  filter: grayscale(60%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-full-slide img:hover {
   filter: sepia(0%) contrast(100%);
 }
+
+.carousel-full-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-size: 3rem;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s ease, color 0.2s ease;
+  padding: 10px;
+  
+  outline: none;
+  user-select: none;
+}
+
+.carousel-full-btn:hover {
+  
+}
+
+.carousel-full-btn.prev { left: 15px; }
+.carousel-full-btn.next { right: 15px; }
+
 
 /* ==========================================
    SECCIÓN IMAGEN BANNER FINAL (FULL-WIDTH CON OVERLAY Y TEXTO CENTRADO)
@@ -820,6 +872,17 @@ section {
   margin: 0;
   line-height: 1.5;
   text-align: center;
+}
+
+/* CAMBIO SOLICITADO: Zoom en las ilustraciones de La Ceremonia / La Celebración */
+
+.location-illustration {
+  max-width: 380px;
+  height: 230px;
+  object-fit: contain;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  filter: sepia(60%) hue-rotate(320deg) contrast(110%);
 }
 
 /* ==========================================
