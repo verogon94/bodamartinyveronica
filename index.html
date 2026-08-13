@@ -39,16 +39,14 @@ y por dicha singular poder fabricar entre todos recuerdos que el tiempo no habr�
     </div>
   </section>
 
-
-<!-- SEPARADOR CON IMAGEN -->
+  <!-- SEPARADOR CON IMAGEN -->
   <div class="container">
     <div class="separador-imagen-container">
-      <img src="img/separador.png" alt="Separador decorativo" class="separador-img">
+      <img src="img/separador-ok.png" alt="Separador decorativo" class="separador-img">
     </div>
   </div>
 
-  
-<!-- UBICACIONES CON EFECTO REVELAR -->
+  <!-- UBICACIONES CON EFECTO REVELAR -->
   <section id="ubicaciones">
     <br>
     <div class="container">
@@ -63,7 +61,6 @@ y por dicha singular poder fabricar entre todos recuerdos que el tiempo no habr�
 
           <div class="reveal-area" onclick="toggleReveal(this)">
             <div class="reveal-cover">
-              <!-- Texto sustitutivo en portada -->
               <p class="location-description">
                 En el corazón de la capital del reino
               </p>
@@ -92,7 +89,6 @@ y por dicha singular poder fabricar entre todos recuerdos que el tiempo no habr�
 
           <div class="reveal-area" onclick="toggleReveal(this)">
             <div class="reveal-cover">
-              <!-- Texto sustitutivo en portada -->
               <p class="location-description">
                 En un lugar <i>secreto</i> del nuevo mundo
               </p>
@@ -118,7 +114,7 @@ y por dicha singular poder fabricar entre todos recuerdos que el tiempo no habr�
 
   <!-- CUENTA ATRÁS -->
   <section class="countdown-section">
-    <br>
+    
     <div class="container">
       <h2 class="section-title">FALTAN:</h2>
       <div class="countdown-container">
@@ -130,9 +126,14 @@ y por dicha singular poder fabricar entre todos recuerdos que el tiempo no habr�
     </div>
   </section>
 
-  <hr class="divider">
+  <!-- SEPARADOR CON IMAGEN -->
+  <div class="container">
+    <div class="separador-imagen-container">
+      <img src="img/separador-ok.png" alt="Separador decorativo" class="separador-img">
+    </div>
+  </div>
 
-<!-- SECCIÓN ¿Y DÓNDE OS LLEVAMOS? -->
+  <!-- SECCIÓN ¿Y DÓNDE OS LLEVAMOS? -->
   <section class="donde-os-llevamos-section">
     <div class="container">
       <h2 class="section-title">¿Y DÓNDE OS LLEVAMOS?</h2>
@@ -140,7 +141,6 @@ y por dicha singular poder fabricar entre todos recuerdos que el tiempo no habr�
         Cuando el tiempo fuere llegado, el secreto será al fin desvelado.
       </p>
 
-      <!-- BOTÓN SIN HREF (IMPIDE CLIC DERECHO "ABRIR EN PESTAÑA NUEVA" Y RUTA EN LA BARRA DE ESTADO) -->
       <div class="donde-link-wrapper">
         <button type="button" 
                 class="aventuras-btn disabled" 
@@ -154,41 +154,43 @@ y por dicha singular poder fabricar entre todos recuerdos que el tiempo no habr�
     </div>
   </section>
 
-
   <hr class="divider">
 
-  <!-- GALERÍA -->
-  <section>
+  <!-- GALERÍA CARRUSEL PANORÁMICO MANUAL -->
+  <section class="gallery-section-full">
     <div class="container">
       <h2 class="section-title">ALGUNOS RECUERDOS</h2>
-      <br>
-      <div class="gallery-grid">
-        <img src="img/foto1.jpg" alt="Momento 1">
-        <img src="img/foto3.jpg" alt="Momento 2">
-        <img src="img/foto4.JPG" alt="Momento 3">
-        <img src="img/foto2.jpg" alt="Momento 4">
+    </div>
+    <br>
+    
+    <div class="carousel-full-wrapper" id="carouselWrapper">
+      <div class="carousel-full-track" id="carouselTrack">
+        <div class="carousel-full-slide"><img src="img/foto1.jpg" alt="Momento 1" class="zoomable-img"></div>
+        <div class="carousel-full-slide"><img src="img/foto3.jpg" alt="Momento 2" class="zoomable-img"></div>
+        <div class="carousel-full-slide"><img src="img/foto4.JPG" alt="Momento 3" class="zoomable-img"></div>
+        <div class="carousel-full-slide"><img src="img/foto2.jpg" alt="Momento 4" class="zoomable-img"></div>
+        <div class="carousel-full-slide"><img src="img/foto5.png" alt="Momento 5" class="zoomable-img"></div>
+        <div class="carousel-full-slide"><img src="img/foto6.png" alt="Momento 6" class="zoomable-img"></div>
+        <div class="carousel-full-slide"><img src="img/foto7.png" alt="Momento 7" class="zoomable-img"></div>
+        <div class="carousel-full-slide"><img src="img/foto8.png" alt="Momento 8" class="zoomable-img"></div>
+        <div class="carousel-full-slide"><img src="img/foto9.png" alt="Momento 9" class="zoomable-img"></div>
+        <div class="carousel-full-slide"><img src="img/foto10.png" alt="Momento 10" class="zoomable-img"></div>
       </div>
+
+      <!-- BOTONES DE FLECHAS MINIMALISTAS -->
+      <button class="carousel-full-btn prev" id="prevBtn" aria-label="Anterior">&#10094;</button>
+      <button class="carousel-full-btn next" id="nextBtn" aria-label="Siguiente">&#10095;</button>
     </div>
     <br>
   </section>
 
-
-<!-- SECCIÓN IMAGEN BANNER FINAL CON TEXTO Y FILTRO OVERLAY -->
+  <!-- SECCIÓN IMAGEN BANNER FINAL -->
   <section class="banner-imagen">
     <div class="banner-overlay"></div>
     <div class="banner-content">
       <p class="descripcion-banner">...sigamos sumando momentos...</p>
     </div>
   </section>
-
-  <!-- SECCIÓN IMAGEN FINAL BANNER -->
-  <!-- <section class="banner-imagen"> -->
-  <!---  <div class="container"> -->
-  <!--    <p class="descripcion-banner">...sigamos sumando momentos...</p> -->
-  <!--   <br> -->
-  <!--  <img src="img/imagen-banner-final.png" alt="Imagen mapa pareja" class="imagen-punta-cana"> -->
-  <!-- </div> -->
-  <!-- </section> -->
 
   <footer>
     <p>2026 © Creado por Verónica y Martín con mucho <span class="fa fa-heart pulse2"></span> para vosotros</p>
@@ -211,6 +213,7 @@ y por dicha singular poder fabricar entre todos recuerdos que el tiempo no habr�
       element.classList.toggle('revealed');
     }
 
+    /* CUENTA ATRÁS */
     const targetDate = new Date(2026, 10, 28, 17, 0, 0).getTime();
     function updateCountdown() {
       const now = new Date().getTime();
@@ -231,6 +234,7 @@ y por dicha singular poder fabricar entre todos recuerdos que el tiempo no habr�
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
+    /* MODAL AMPLIFICADOR DE IMAGEN */
     const modal = document.getElementById('image-modal');
     const modalImg = document.getElementById('modal-img');
     const closeBtn = document.getElementsByClassName('modal-close')[0];
@@ -247,6 +251,7 @@ y por dicha singular poder fabricar entre todos recuerdos que el tiempo no habr�
       if (e.target === modal) modal.style.display = 'none';
     });
 
+    /* REPRODUCCIÓN MÚSICA DE FONDO */
     let musicaSonada = false;
     window.addEventListener('scroll', () => {
       const scrollPosicion = window.innerHeight + window.scrollY;
@@ -261,6 +266,62 @@ y por dicha singular poder fabricar entre todos recuerdos que el tiempo no habr�
         });
       }
     });
+
+    /* LÓGICA DEL CARRUSEL EXCLUSIVAMENTE MANUAL */
+    const track = document.getElementById('carouselTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let currentOffset = 0;
+
+    function getSlideWidth() {
+      const slide = track.querySelector('.carousel-full-slide');
+      return slide ? slide.offsetWidth : 300;
+    }
+
+    function moveNext() {
+      const slideWidth = getSlideWidth();
+      currentOffset += slideWidth;
+      
+      track.style.transition = 'transform 0.5s ease-in-out';
+      track.style.transform = `translateX(-${currentOffset}px)`;
+
+      setTimeout(() => {
+        if (currentOffset >= slideWidth) {
+          track.style.transition = 'none';
+          track.appendChild(track.firstElementChild);
+          currentOffset -= slideWidth;
+          track.style.transform = `translateX(-${currentOffset}px)`;
+        }
+      }, 500);
+    }
+
+    function movePrev() {
+      const slideWidth = getSlideWidth();
+      
+      track.style.transition = 'none';
+      track.insertBefore(track.lastElementChild, track.firstElementChild);
+      currentOffset += slideWidth;
+      track.style.transform = `translateX(-${currentOffset}px)`;
+
+      setTimeout(() => {
+        track.style.transition = 'transform 0.5s ease-in-out';
+        currentOffset -= slideWidth;
+        track.style.transform = `translateX(-${currentOffset}px)`;
+      }, 20);
+    }
+
+    // Activa el clic para agrandar/achicar la imagen de lista de aparejos
+const aparejosImg = document.querySelector('.aparejos-img');
+if (aparejosImg) {
+  aparejosImg.addEventListener('click', () => {
+    aparejosImg.classList.toggle('ampliada');
+  });
+}
+
+    // Pasa fotos únicamente al hacer clic en las flechas
+    nextBtn.addEventListener('click', moveNext);
+    prevBtn.addEventListener('click', movePrev);
   </script>
 </body>
 </html>
