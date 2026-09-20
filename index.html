@@ -147,7 +147,7 @@ y por dicha singular poder fabricar entre todos recuerdos que el tiempo no habr�
                 disabled 
                 oncontextmenu="return false;" 
                 title="El enlace se activará próximamente">
-          Descubrir
+          Descubrir el día 26 de septiembre.
         </button>
       </div>
 
@@ -251,21 +251,27 @@ y por dicha singular poder fabricar entre todos recuerdos que el tiempo no habr�
       if (e.target === modal) modal.style.display = 'none';
     });
 
-    /* REPRODUCCIÓN MÚSICA DE FONDO */
-    let musicaSonada = false;
-    window.addEventListener('scroll', () => {
-      const scrollPosicion = window.innerHeight + window.scrollY;
-      const limiteInferior = document.documentElement.scrollHeight - 50;
 
-      if (scrollPosicion >= limiteInferior && !musicaSonada) {
-        const audio = document.getElementById('musica-final');
-        audio.play().then(() => {
-          musicaSonada = true;
-        }).catch(error => {
-          console.log("El navegador bloqueó la reproducción automática:", error);
-        });
-      }
-    });
+
+/* REPRODUCCIÓN MÚSICA DESDE EL PRINCIPIO */
+const audio = document.getElementById('musica-final');
+
+function reproducirMusica() {
+  audio.play().then(() => {
+    // Si se reproduce con éxito, quitamos los eventos de interacción
+    document.removeEventListener('click', reproducirMusica);
+    document.removeEventListener('touchstart', reproducirMusica);
+  }).catch(error => {
+    console.log("El navegador requiere interacción del usuario para reproducir audio.");
+  });
+}
+
+// Intentar reproducir inmediatamente al cargar
+window.addEventListener('DOMContentLoaded', reproducirMusica);
+
+// Por si el navegador lo bloquea, reproducir en el primer clic o toque en la página
+document.addEventListener('click', reproducirMusica);
+document.addEventListener('touchstart', reproducirMusica);
 
     /* LÓGICA DEL CARRUSEL EXCLUSIVAMENTE MANUAL */
     const track = document.getElementById('carouselTrack');
