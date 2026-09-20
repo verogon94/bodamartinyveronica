@@ -83,7 +83,7 @@
                 y asentada en la cercada y privilegiada villa de Cap Cana.
                 El Secrets Cap Cana Resort & Spa alza sus aposentos ante las cristalinas aguas de la playa de Juanillo,
                 de uso reservado, tenida por una de las más hermosas y apacibles costas de toda La Española.
-                En apuesta morada hallárase descanso, deleite y cumplida atención, bajo el sello Unlimited Luxury ®, 
+                En apuesta morada hallárase descanso, deleite y cumplida atención, bajo el sello Unlimited Luxury ®, 
                 haciendo de la estancia una experiencia digna de los más ilustres viajeros que a las tierras del Nuevo Mundo se aventuran.
               </p>
             </details>
@@ -142,7 +142,14 @@
     <img class="modal-content" id="modal-img" alt="Vista ampliada">
   </div>
 
+  <!-- AUDIO DE FONDO -->
+  <audio id="musica-fondo" preload="auto" loop>
+    <source src="audio/bilirrubina.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
   <script>
+    /* AMPLIFICADOR DE IMÁGENES */
     const modal = document.getElementById('image-modal');
     const modalImg = document.getElementById('modal-img');
     const closeBtn = document.getElementsByClassName('modal-close')[0];
@@ -161,6 +168,25 @@
     modal.addEventListener('click', (e) => {
       if (e.target === modal) modal.style.display = 'none';
     });
+
+    /* REPRODUCCIÓN MÚSICA DE FONDO DESDE EL INICIO */
+    const audio = document.getElementById('musica-fondo');
+
+    function reproducirMusica() {
+      audio.play().then(() => {
+        document.removeEventListener('click', reproducirMusica);
+        document.removeEventListener('touchstart', reproducirMusica);
+      }).catch(error => {
+        console.log("El navegador requiere interacción previa del usuario para reproducciones de audio.");
+      });
+    }
+
+    // Intentar reproducir automáticamente al cargar la página
+    window.addEventListener('DOMContentLoaded', reproducirMusica);
+
+    // Intentar reproducir al primer clic o toque táctil si fue bloqueado previamente
+    document.addEventListener('click', reproducirMusica);
+    document.addEventListener('touchstart', reproducirMusica);
   </script>
 
 </body>
