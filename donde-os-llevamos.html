@@ -12,6 +12,15 @@
 </head>
 <body>
 
+  <!-- BOTÓN VOLVER (ARRIBA DEL TODO) -->
+  <div class="container" style="padding-top: 20px; padding-bottom: 10px;">
+    <div class="aventuras-link-wrapper">
+      <a href="index.html" class="aventuras-btn">
+        <i class="fa fa-arrow-left"></i> Volver al inicio
+      </a>
+    </div>
+  </div>
+
   <!-- ITINERARIO DE NAVEGACIÓN -->
   <section class="itinerary-section">
     <div class="container">
@@ -26,6 +35,17 @@
           <img src="img/itinerario-puntacana.svg" alt="Itinerario Punta Cana" class="itinerary-img zoomable-img">
           <p class="itinerary-caption">Haz clic en la imagen para verlo en grande</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTA DE TRAVESIA-->
+  <section class="aventuras-section">
+    <div class="container">
+      <div class="aventuras-link-wrapper">
+        <a href="docs/itinerario.pdf" target="_blank" rel="noopener noreferrer" class="aventuras-btn">
+          Consulta la carta de travesía
+        </a>
       </div>
     </div>
   </section>
@@ -80,7 +100,7 @@
               <p class="hotel-texto-detallado">
                 Hállase aquesta ilustre morada entre las más preclaras y suntuosas de cuantas se conocen en las tierras del Caribe, 
                 ennoblecida con la insigne distinción AAA Five Diamond, 
-                y asentada en la cercada y privilegiada villa de Cap Cana.
+                y asentada en la cercada y privileged villa de Cap Cana.
                 El Secrets Cap Cana Resort & Spa alza sus aposentos ante las cristalinas aguas de la playa de Juanillo,
                 de uso reservado, tenida por una de las más hermosas y apacibles costas de toda La Española.
                 En apuesta morada hallárase descanso, deleite y cumplida atención, bajo el sello Unlimited Luxury ®, 
@@ -136,7 +156,7 @@
 
   <hr class="divider">
 
- <!-- AVISOS-NOVEDADES -->
+  <!-- AVISOS-NOVEDADES -->
   <section class="aventuras-section">
     <div class="container">
       <h2 class="section-title">AVISOS Y NOVEDADES</h2>
@@ -145,15 +165,24 @@
         <a href="https://www.accuweather.com/es/do/punta-cana/462477/weather-forecast/462477" target="_blank" rel="noopener noreferrer" class="aventuras-btn">
           Tiempo en Punta Cana
         </a>
-        <br>
-        <br>
+        <br><br>
 
         <a href="https://www.exteriores.gob.es/es/ServiciosAlCiudadano/Paginas/Detalle-recomendaciones-de-viaje.aspx?trc=República+Dominicana" target="_blank" rel="noopener noreferrer" class="aventuras-btn">
           Recomendaciones de viaje Ministerio de Exteriores
         </a>
+
       </div>
     </div>
   </section>
+
+  <!-- BOTÓN VOLVER (ABAJO DEL TODO) -->
+  <div class="container" style="padding-top: 20px; padding-bottom: 40px;">
+    <div class="aventuras-link-wrapper">
+      <a href="index.html" class="aventuras-btn">
+        <i class="fa fa-arrow-left"></i> Volver al inicio
+      </a>
+    </div>
+  </div>
 
   <hr class="divider">
 
@@ -192,22 +221,19 @@
 
     const audio = document.getElementById('musica-fondo');
 
-function iniciarAudio() {
-  audio.play().then(() => {
-    // Si la reproducción tiene éxito, eliminamos las escuchas de interacción
-    document.removeEventListener('click', iniciarAudio);
-    document.removeEventListener('touchstart', iniciarAudio);
-  }).catch(err => {
-    console.log("Esperando interacción del usuario para iniciar el audio...");
-  });
-}
+    function iniciarAudio() {
+      audio.play().then(() => {
+        document.removeEventListener('click', iniciarAudio);
+        document.removeEventListener('touchstart', iniciarAudio);
+      }).catch(err => {
+        console.log("Esperando interacción del usuario para iniciar el audio...");
+      });
+    }
 
-// Intentar reproducir directamente (por si el usuario ya interactuó con el dominio previamente)
-iniciarAudio();
+    iniciarAudio();
 
-// Escuchar la primera interacción en la página
-document.addEventListener('click', iniciarAudio, { once: false });
-document.addEventListener('touchstart', iniciarAudio, { once: false });
+    document.addEventListener('click', iniciarAudio, { once: false });
+    document.addEventListener('touchstart', iniciarAudio, { once: false });
   </script>
 
 </body>
