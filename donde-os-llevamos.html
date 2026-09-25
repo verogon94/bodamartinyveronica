@@ -142,13 +142,14 @@
       <h2 class="section-title">AVISOS Y NOVEDADES</h2>
       
       <div class="aventuras-link-wrapper">
-        <a href="https://www.exteriores.gob.es/es/ServiciosAlCiudadano/Paginas/Detalle-recomendaciones-de-viaje.aspx?trc=República+Dominicana" target="_blank" rel="noopener noreferrer" class="aventuras-btn">
-          Recomendaciones de viaje Ministerio de Exteriores
+        <a href="https://www.accuweather.com/es/do/punta-cana/462477/weather-forecast/462477" target="_blank" rel="noopener noreferrer" class="aventuras-btn">
+          Tiempo en Punta Cana
         </a>
         <br>
         <br>
-        <a href="https://www.accuweather.com/es/do/punta-cana/462477/weather-forecast/462477" target="_blank" rel="noopener noreferrer" class="aventuras-btn">
-          Tiempo en Punta Cana
+
+        <a href="https://www.exteriores.gob.es/es/ServiciosAlCiudadano/Paginas/Detalle-recomendaciones-de-viaje.aspx?trc=República+Dominicana" target="_blank" rel="noopener noreferrer" class="aventuras-btn">
+          Recomendaciones de viaje Ministerio de Exteriores
         </a>
       </div>
     </div>
@@ -189,24 +190,24 @@
       if (e.target === modal) modal.style.display = 'none';
     });
 
-    /* REPRODUCCIÓN MÚSICA DE FONDO DESDE EL INICIO */
     const audio = document.getElementById('musica-fondo');
 
-    function reproducirMusica() {
-      audio.play().then(() => {
-        document.removeEventListener('click', reproducirMusica);
-        document.removeEventListener('touchstart', reproducirMusica);
-      }).catch(error => {
-        console.log("El navegador requiere interacción previa del usuario para reproducciones de audio.");
-      });
-    }
+function iniciarAudio() {
+  audio.play().then(() => {
+    // Si la reproducción tiene éxito, eliminamos las escuchas de interacción
+    document.removeEventListener('click', iniciarAudio);
+    document.removeEventListener('touchstart', iniciarAudio);
+  }).catch(err => {
+    console.log("Esperando interacción del usuario para iniciar el audio...");
+  });
+}
 
-    // Intentar reproducir automáticamente al cargar la página
-    window.addEventListener('DOMContentLoaded', reproducirMusica);
+// Intentar reproducir directamente (por si el usuario ya interactuó con el dominio previamente)
+iniciarAudio();
 
-    // Intentar reproducir al primer clic o toque táctil si fue bloqueado previamente
-    document.addEventListener('click', reproducirMusica);
-    document.addEventListener('touchstart', reproducirMusica);
+// Escuchar la primera interacción en la página
+document.addEventListener('click', iniciarAudio, { once: false });
+document.addEventListener('touchstart', iniciarAudio, { once: false });
   </script>
 
 </body>
