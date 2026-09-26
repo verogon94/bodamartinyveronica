@@ -197,6 +197,12 @@ y por dicha singular poder fabricar entre todos recuerdos que el tiempo no habr�
     <img class="modal-content" id="modal-img" alt="Vista ampliada">
   </div>
 
+
+  <!-- BOTÓN FLOTANTE DE CONTROL DE MÚSICA -->
+<button id="btn-musica" class="musica-float-btn" onclick="toggleMusica()" aria-label="Reproducir o pausar música">
+  <i id="icono-musica" class="fa fa-play"></i>
+</button>
+
   <!-- AUDIO -->
   <audio id="musica-final" preload="auto" loop>
     <source src="audio/Boccherini.mp3" type="audio/mpeg">
@@ -247,26 +253,25 @@ y por dicha singular poder fabricar entre todos recuerdos que el tiempo no habr�
     });
 
 
+/* CONTROL MANUAL DE MÚSICA CON BOTÓN FLOTANTE */
+function toggleMusica() {
+  const audio = document.getElementById('musica-final');
+  const icono = document.getElementById('icono-musica');
+  const btn = document.getElementById('btn-musica');
 
-/* REPRODUCCIÓN MÚSICA DESDE EL PRINCIPIO */
-const audio = document.getElementById('musica-final');
-
-function reproducirMusica() {
-  audio.play().then(() => {
-    // Si se reproduce con éxito, quitamos los eventos de interacción
-    document.removeEventListener('click', reproducirMusica);
-    document.removeEventListener('touchstart', reproducirMusica);
-  }).catch(error => {
-    console.log("El navegador requiere interacción del usuario para reproducir audio.");
-  });
+  if (audio.paused) {
+    audio.play().then(() => {
+      icono.className = 'fa fa-pause';
+      btn.classList.add('reproduciendo');
+    }).catch(error => {
+      console.log("Error al reproducir el audio:", error);
+    });
+  } else {
+    audio.pause();
+    icono.className = 'fa fa-play';
+    btn.classList.remove('reproduciendo');
+  }
 }
-
-// Intentar reproducir inmediatamente al cargar
-window.addEventListener('DOMContentLoaded', reproducirMusica);
-
-// Por si el navegador lo bloquea, reproducir en el primer clic o toque en la página
-document.addEventListener('click', reproducirMusica);
-document.addEventListener('touchstart', reproducirMusica);
 
     /* LÓGICA DEL CARRUSEL EXCLUSIVAMENTE MANUAL */
     const track = document.getElementById('carouselTrack');
