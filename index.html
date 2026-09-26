@@ -137,23 +137,18 @@ y por dicha singular poder fabricar entre todos recuerdos que el tiempo no habr�
   <section class="donde-os-llevamos-section">
     <div class="container">
       <h2 class="section-title">¿Y DÓNDE OS LLEVAMOS?</h2>
-      <p class="descripcion">
-        Cuando el tiempo fuere llegado, el secreto será al fin desvelado.
-      </p>
-
       <div class="donde-link-wrapper">
-        <button type="button" 
-                class="aventuras-btn disabled" 
-                disabled 
-                oncontextmenu="return false;" 
-                title="El enlace se activará próximamente">
-          Descubrir el día 26 de septiembre.
-        </button>
+        <!-- Botón que cambiará automáticamente -->
+        <a id="btn-revelar" 
+           href="javascript:void(0)" 
+           class="aventuras-btn disabled" 
+           style="pointer-events: none; opacity: 0.6;" 
+           title="El enlace se activará próximamente">
+          Descubrir dónde os llevamos.
+        </a>
       </div>
-
     </div>
   </section>
-
   <hr class="divider">
 
   <!-- GALERÍA CARRUSEL PANORÁMICO MANUAL -->
@@ -328,6 +323,31 @@ if (aparejosImg) {
     // Pasa fotos únicamente al hacer clic en las flechas
     nextBtn.addEventListener('click', moveNext);
     prevBtn.addEventListener('click', movePrev);
+
+    /* ACTIVACIÓN AUTOMÁTICA DEL BOTÓN A UNA FECHA Y HORA CONCRETA */
+    // Configura aquí la fecha y hora exactas de activación (Año, Mes [0-11], Día, Hora, Minutos, Segundos)
+    // Nota: El mes en JavaScript empieza en 0 (0 = Enero, 8 = Septiembre, 9 = Octubre, etc.)
+    const fechaActivacion = new Date(2026, 8, 26, 15, 30, 0).getTime(); // 26 de Septiembre de 2026 a las 15:30 PM
+
+    function comprobarActivacionBoton() {
+      const ahora = new Date().getTime();
+      const boton = document.getElementById('btn-revelar');
+
+      if (boton && ahora >= fechaActivacion) {
+        // Habilitar enlace y cambiar estilos
+        boton.href = "donde-os-llevamos.html";
+        boton.classList.remove('disabled');
+        boton.style.pointerEvents = "auto";
+        boton.style.opacity = "1";
+        boton.title = "Haz clic para descubrir la travesía";
+        boton.innerText = "Descubrir dónde os llevamos";
+      }
+    }
+
+    // Comprobar al cargar la página y revisar cada segundo
+    document.addEventListener('DOMContentLoaded', comprobarActivacionBoton);
+    setInterval(comprobarActivacionBoton, 1000);
+  
   </script>
 </body>
 </html>
