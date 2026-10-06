@@ -110,7 +110,7 @@
           </div>
           
           <a href="https://www.hyattinclusivecollection.com/es/resorts-y-hoteles/secrets/republica-dominicana/cap-cana-resort-spa/" target="_blank" rel="noopener noreferrer" class="hotel-map-link">
-            <iframe class="hotel-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.974538412734!2d-68.39913742433406!3d18.48481248260191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea891001d36a695%3A0x938358f0d69315cd!2sSecrets%20Cap%20Cana%20Resort%20%26%20Spa!5e0!3m2!1ses!2ses!4v1784669958834!5m2!1ses!2ses" width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <iframe class="hotel-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.974538412734!2d-68.49913742433406!3d18.48481248260191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea891001d36a695%3A0x938358f0d69315cd!2sSecrets%20Cap%20Cana%20Resort%20%26%20Spa!5e0!3m2!1ses!2ses!4v1784669958834!5m2!1ses!2ses" width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
           </a>
         </div>
 
@@ -161,15 +161,6 @@
     <div class="container">
       <h2 class="section-title">AVISOS Y NOVEDADES</h2>
       
-      <div class="container">
-      <div class="aventuras-link-wrapper">
-        <a href="docs/planning.pdf" target="_blank" rel="noopener noreferrer" class="aventuras-btn">
-          Consulta la planificación de actividades propuestas
-        </a>
-      </div>
-    </div>
-    <br>
-      
       <div class="aventuras-link-wrapper">
         <a href="https://www.accuweather.com/es/do/punta-cana/462477/weather-forecast/462477" target="_blank" rel="noopener noreferrer" class="aventuras-btn">
           Tiempo en Punta Cana
@@ -207,6 +198,11 @@
     Tu navegador no soporta el elemento de audio.
   </audio>
 
+  <!-- BOTÓN FLOTANTE DE CONTROL DE MÚSICA -->
+  <button id="btn-musica" class="musica-float-btn" onclick="toggleMusica()" aria-label="Reproducir o pausar música">
+    <i id="icono-musica" class="fa fa-play"></i>
+  </button>
+
   <script>
     /* AMPLIFICADOR DE IMÁGENES */
     const modal = document.getElementById('image-modal');
@@ -228,21 +224,22 @@
       if (e.target === modal) modal.style.display = 'none';
     });
 
+    /* CONTROL MANUAL DEL AUDIO CON BOTÓN FLOTANTE */
     const audio = document.getElementById('musica-fondo');
+    const iconoMusica = document.getElementById('icono-musica');
 
-    function iniciarAudio() {
-      audio.play().then(() => {
-        document.removeEventListener('click', iniciarAudio);
-        document.removeEventListener('touchstart', iniciarAudio);
-      }).catch(err => {
-        console.log("Esperando interacción del usuario para iniciar el audio...");
-      });
+    function toggleMusica() {
+      if (audio.paused) {
+        audio.play().then(() => {
+          iconoMusica.className = 'fa fa-pause';
+        }).catch(err => {
+          console.error("Error al reproducir audio:", err);
+        });
+      } else {
+        audio.pause();
+        iconoMusica.className = 'fa fa-play';
+      }
     }
-
-    iniciarAudio();
-
-    document.addEventListener('click', iniciarAudio, { once: false });
-    document.addEventListener('touchstart', iniciarAudio, { once: false });
   </script>
 
 </body>
